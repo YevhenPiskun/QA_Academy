@@ -3,6 +3,17 @@ public class HomeWork1_2 {
         digest(26543);
     }
 
+    //Все отлично, но можно было бы обойтись одной переменной
+    //а выводить остаток от деления этой переменой на 10
+    /*
+         int num = number;
+         System.out.println(num % 10);
+         num /= 10; //или num = num / 10;
+         System.out.println(num % 10);         
+         num /= 10; 
+         System.out.println(num % 10);
+         //и так далее
+    */
     public static void digest(int number){
         int firstNumber = number%10;
         System.out.println(firstNumber);
