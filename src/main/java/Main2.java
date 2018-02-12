@@ -11,7 +11,7 @@ public class Main2 {
         String rastoyanieLine = reader.readLine();
         Double minutesDouble = Double.parseDouble(minutesLine);
         Double rasstoyanieDouble = Double.parseDouble(rastoyanieLine);
-        double skorost = rasstoyanieDouble/(minutesDouble/60);
+        double skorost = rasstoyanieDouble / (minutesDouble / 60);
         System.out.println("Скорость: " + skorost);
 
     }
