@@ -27,11 +27,11 @@ public class HomeWork3_3 {
             System.out.println("Phone is incorrect");
             System.out.println();
         }
-        while (true){
+        while (true) {
             System.out.println("Enter your email: ");
             String email = reader.readLine();
             Pattern patternEmail = Pattern.compile("^(([a-zA-Z0-9_-]+)([@]{1})([a-zA-Z-_ ]+)([.]{1,2})([a-zA-Z-_ ]+))$");
-            if (patternEmail.matcher(email).matches()){
+            if (patternEmail.matcher(email).matches()) {
                 break;
             }
             System.out.println("Email is incorrect");
