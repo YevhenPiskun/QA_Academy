@@ -8,7 +8,7 @@ public class HomeWork3_3 {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String fio = reader.readLine();
-        Pattern pattern = Pattern.compile("^([A-Za-z])$");
+        Pattern pattern = Pattern.compile("^[A-Za-z]$");
         Matcher match = pattern.matcher(fio);
         System.out.println(match.matches());
     }
