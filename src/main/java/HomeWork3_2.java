@@ -9,7 +9,7 @@ public class HomeWork3_2 {
         char arrSymbolsOfLine[] = line.toCharArray();
         int[] arrSymbols = new int[256];
         for (int i = 0; i < arrSymbolsOfLine.length; i++) {
-            arrSymbols[Character.getNumericValue(arrSymbolsOfLine[i])] = arrSymbols[Character.getNumericValue(arrSymbolsOfLine[i])] + 1;
+            arrSymbols[(int)arrSymbolsOfLine[i]] = arrSymbols[(int)arrSymbolsOfLine[i]] + 1;
         }
         for (int j = 0; j < arrSymbols.length; j++) {
             if (arrSymbols[j] != 0) {
