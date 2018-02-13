@@ -5,9 +5,13 @@ import java.io.InputStreamReader;
 public class HomeWork3_1 {
 
     public static void main(String[] args) throws IOException {
+        //Нужно вывести пользователю меню,  как пользователю, так как мне не понятно
+        //что за действия "Выберите действие со строкой(a, b, c, d, e, f): "
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String line = reader.readLine();
         System.out.println("Выберите действие со строкой(a, b, c, d, e, f): ");
+        //не очень хорошая идея, так как будет создаваться новый массив 
+        //лучше импользовать метод String charAt(0)
         char[] choice = reader.readLine().toCharArray();
         switch (choice[0]) {
             case 'a':
