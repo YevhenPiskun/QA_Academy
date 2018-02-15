@@ -1,4 +1,4 @@
-package com.playtika.homework;//Не задан пакет!!!
+package com.playtika.homework;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
