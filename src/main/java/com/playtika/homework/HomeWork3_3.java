@@ -1,4 +1,4 @@
-//Пакет!!!!
+package com.playtika.homework;//Пакет!!!!
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;

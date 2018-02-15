@@ -1,3 +1,5 @@
+package com.playtika.homework;
+
 public class HomeWork1_1 {
     public static void main(String args[]){
         System.out.printf("Long  x + (y - 100) * z/n = %d %n", equationLong(3, 5, 4, 2));

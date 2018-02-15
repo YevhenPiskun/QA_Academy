@@ -1,3 +1,5 @@
+package com.playtika.homework;
+
 public class HomeWork2_3 {
 
     public static void main(String[] args) {

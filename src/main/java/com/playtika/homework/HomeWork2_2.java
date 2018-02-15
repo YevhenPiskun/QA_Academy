@@ -1,3 +1,4 @@
+package com.playtika.homework;
 
 public class HomeWork2_2 {
 

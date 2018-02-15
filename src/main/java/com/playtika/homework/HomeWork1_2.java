@@ -1,3 +1,5 @@
+package com.playtika.homework;
+
 public class HomeWork1_2 {
     public static void main(String args[]){
         digest(26543);
