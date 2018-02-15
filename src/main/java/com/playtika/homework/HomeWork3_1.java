@@ -7,15 +7,18 @@ import java.io.InputStreamReader;
 public class HomeWork3_1 {
 
     public static void main(String[] args) throws IOException {
-        //Нужно вывести пользователю меню,  как пользователю, так как мне не понятно
-        //что за действия "Выберите действие со строкой(a, b, c, d, e, f): "
+        System.out.println("Введите строку: ");
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String line = reader.readLine();
-        System.out.println("Выберите действие со строкой(a, b, c, d, e, f): ");
-        //не очень хорошая идея, так как будет создаваться новый массив 
-        //лучше импользовать метод String charAt(0)
-        char[] choice = reader.readLine().toCharArray();
-        switch (choice[0]) {
+        System.out.println("Выберите действие: ");
+        System.out.println("a - СТРОКА ЗАГЛАВНЫМИ БУКВАМИ");
+        System.out.println("b - строка в нижнем регистре");
+        System.out.println("c - С Заглавной Буквы Каждое Слово");
+        System.out.println("d - пЕРВЫЙ сИМВОЛ с мАЛЕНЬКОЙ бУКВЫ");
+        System.out.println("e - Как в предложении (с заглавной буквы)");
+        System.out.println("f - Выход из программы");
+        String choice = reader.readLine();
+        switch (choice.charAt(0)) {
             case 'a':
                 System.out.println(line.toUpperCase());
                 break;
