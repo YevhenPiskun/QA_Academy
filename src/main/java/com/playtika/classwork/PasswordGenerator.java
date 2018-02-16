@@ -15,6 +15,11 @@ public class PasswordGenerator {
     private static final String NUMBER = "0123456789";
     private static final String LETTERS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
+    private static final int SET_OF_SYMBOLS = 2;
+    private static final int SET_OF_DIGITS = 1;
+    private static final int COUNT_OF_DIGITS = 3;
+    private static Random random = new Random();
+
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         int passwordLength;
@@ -39,7 +44,7 @@ public class PasswordGenerator {
 
         String[] array = {LETTERS, NUMBER, SYMBOL};  //массив наборов символов
         int bound = 3;
-        int countOfNumbers = 0;
+        int countOfDigits = 0;
         Random random = new Random();
         //лучше использовать StringBuilder
         String password = "";
@@ -52,15 +57,15 @@ public class PasswordGenerator {
                 continue;
             } else {
                 //Магическое число 2
-                if (setOfSymbols == 2) {     //проверка на то, что выпал символ из 2-го набора символов
+                if (setOfSymbols == SET_OF_SYMBOLS) {     //проверка на то, что выпал символ из 2-го набора символов
                     //дорогая операция! StringBuilder нужен
                     password = password.concat(nextSymbol);
                     bound = 2;
                 } else {
                     //Магическое число 1
-                    if (setOfSymbols == 1) {   //проверка на то, что выпал символ из 1-го набора символов
-                        countOfNumbers++;
-                        if (countOfNumbers == 3) {   //проверка на то, что символ из 1-го набора уже выпал 3 раза
+                    if (setOfSymbols == SET_OF_DIGITS) {   //проверка на то, что выпал символ из 1-го набора символов
+                        countOfDigits++;
+                        if (countOfDigits == COUNT_OF_DIGITS) {   //проверка на то, что символ из 1-го набора уже выпал 3 раза
                             bound = 1;
                         }
                     }
@@ -79,7 +84,6 @@ public class PasswordGenerator {
     private static String returnRandomSymbolFromArray(String line) {      //метод возвращает случайный символ из строки
         //Не нужно каждый раз создавать Random, не оптимально!
         //Создай его один раз как статическое поля класса.
-        Random random = new Random();
         int choice = random.nextInt(line.length());
         //charAt будет лечше
         return line.substring(choice, choice + 1);
