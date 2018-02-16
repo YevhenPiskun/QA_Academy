@@ -5,9 +5,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Random;
 
-/**
- * Всегда при генерации пароль начинается с какого либо символа из набора SYMBOL!
- **/
 public class PasswordGenerator {
 
     private static final int LOW_BOUND = 8;
@@ -82,5 +79,5 @@ public class PasswordGenerator {
         int choice = random.nextInt(line.length());
         return line.charAt(choice);
     }
-    
+
 }
