@@ -9,8 +9,8 @@ public class PasswordGenerator {
 
     private static final int LOW_BOUND = 8;
     private static final int HIGH_BOUND = 20;
-    private static final String SYMBOL = "!@#$%^&*";
-    private static final String NUMBER = "0123456789";
+    private static final String SYMBOLS = "!@#$%^&*";
+    private static final String DIGITS = "0123456789";
     private static final String LETTERS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
     private static final int SET_OF_SYMBOLS = 2;
@@ -43,7 +43,7 @@ public class PasswordGenerator {
             }
         }
 
-        String[] array = {LETTERS, NUMBER, SYMBOL};  //массив наборов символов
+        String[] array = {LETTERS, DIGITS, SYMBOLS};  //массив наборов символов
         int bound = THREE_SET;
         int countOfDigits = 0;
         StringBuilder password = new StringBuilder("");
