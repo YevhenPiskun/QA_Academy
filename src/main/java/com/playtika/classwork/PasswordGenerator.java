@@ -18,6 +18,9 @@ public class PasswordGenerator {
     private static final int SET_OF_SYMBOLS = 2;
     private static final int SET_OF_DIGITS = 1;
     private static final int COUNT_OF_DIGITS = 3;
+    private static final int ONE_SET = 1;
+    private static final int TWO_SET = 2;
+    private static final int THREE_SET = 3;
     private static Random random = new Random();
 
     public static void main(String[] args) throws IOException {
@@ -43,34 +46,27 @@ public class PasswordGenerator {
         }
 
         String[] array = {LETTERS, NUMBER, SYMBOL};  //массив наборов символов
-        int bound = 3;
+        int bound = THREE_SET;
         int countOfDigits = 0;
-        Random random = new Random();
-        //лучше использовать StringBuilder
-        String password = "";
-        //используй char а не String для одного символа
-        String previousSymbol = "";
+        StringBuilder password = new StringBuilder("");
+        char previousSymbol = ' ';
         while (password.length() != passwordLength) {
             int setOfSymbols = random.nextInt(bound);   //случайный выбор набора символов
-            String nextSymbol = returnRandomSymbolFromArray(array[setOfSymbols]);
-            if (nextSymbol.equals(previousSymbol)) {     //проверка на совпадение текущего символа с предыдущим
+            char nextSymbol = returnRandomSymbolFromArray(array[setOfSymbols]);
+            if (nextSymbol == previousSymbol) {     //проверка на совпадение текущего символа с предыдущим
                 continue;
             } else {
-                //Магическое число 2
-                if (setOfSymbols == SET_OF_SYMBOLS) {     //проверка на то, что выпал символ из 2-го набора символов
-                    //дорогая операция! StringBuilder нужен
-                    password = password.concat(nextSymbol);
-                    bound = 2;
+                if (setOfSymbols == SET_OF_SYMBOLS) {     //проверка на то, что выпал символ из набора символов
+                    password.append(nextSymbol);
+                    bound = TWO_SET;
                 } else {
-                    //Магическое число 1
-                    if (setOfSymbols == SET_OF_DIGITS) {   //проверка на то, что выпал символ из 1-го набора символов
+                    if (setOfSymbols == SET_OF_DIGITS) {   //проверка на то, что выпал символ из набора символов
                         countOfDigits++;
-                        if (countOfDigits == COUNT_OF_DIGITS) {   //проверка на то, что символ из 1-го набора уже выпал 3 раза
-                            bound = 1;
+                        if (countOfDigits == COUNT_OF_DIGITS) {   //проверка на то, что символ из набора цифр уже выпал 3 раза
+                            bound = ONE_SET;
                         }
                     }
-                    //дорогая операция! StringBuilder нужен
-                    password = password.concat(nextSymbol);
+                    password.append(nextSymbol);
                     previousSymbol = nextSymbol;
                 }
 
@@ -81,12 +77,9 @@ public class PasswordGenerator {
 
     }
 
-    private static String returnRandomSymbolFromArray(String line) {      //метод возвращает случайный символ из строки
-        //Не нужно каждый раз создавать Random, не оптимально!
-        //Создай его один раз как статическое поля класса.
+    private static char returnRandomSymbolFromArray(String line) {      //метод возвращает случайный символ из строки
         int choice = random.nextInt(line.length());
-        //charAt будет лечше
-        return line.substring(choice, choice + 1);
+        return line.charAt(choice);
     }
 
 
