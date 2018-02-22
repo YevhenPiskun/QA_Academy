@@ -1,6 +1,6 @@
 package com.playtika.homework.hw4_1;
 
-public class Triangle extends Shape {
+public class Triangle extends AbstractShape {
 
     private double sideA;
     private double sideB;
@@ -12,7 +12,7 @@ public class Triangle extends Shape {
         this.sideC = sideC;
     }
 
-    public double getArea() {
+    public double getSquare() {
         double p = (sideA + sideB + sideC) / 2;
         return Math.sqrt(p * (p - sideA) * (p - sideB) * (p - sideC));
     }

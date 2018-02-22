@@ -1,6 +1,6 @@
 package com.playtika.homework.hw4_1;
 
-public class Rectangle extends Shape {
+public class Rectangle extends AbstractShape {
 
     private double top;
     private double side;
@@ -10,7 +10,7 @@ public class Rectangle extends Shape {
         this.side = side;
     }
 
-    public double getArea() {
+    public double getSquare() {
         return top * side;
     }
 
