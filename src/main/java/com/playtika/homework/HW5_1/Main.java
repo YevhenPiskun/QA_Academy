@@ -23,6 +23,21 @@ public class Main {
         } else if (operation.equals("-")) {
             calc.setOperation(new Subtraction());
             calc.operation(a, b);
+        } else if (operation.equals("*")) {
+            calc.setOperation(new Multiplication());
+            calc.operation(a, b);
+        } else if (operation.equals("/")) {
+            calc.setOperation(new Division());
+            calc.operation(a, b);
+        } else if (operation.equals("^")) {
+            calc.setOperation(new Degree());
+            calc.operation(a, b);
+        } else if (operation.equals("log")) {
+            calc.setOperation(new Logarithm());
+            calc.operation(a, b);
+        } else if (operation.equals("sqrt")) {
+            calc.setOperation(new Root());
+            calc.operation(a, b);
         } else {
             System.out.println("Введена не поддерживаемая операция");
         }
