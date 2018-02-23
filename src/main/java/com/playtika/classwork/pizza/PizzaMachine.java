@@ -1,21 +1,20 @@
 package com.playtika.classwork.pizza;
 
 public class PizzaMachine {
+
+    private final PizzaMakerFactory pizzaMakerFactory;
+
+    public PizzaMachine(PizzaMakerFactory pizzaMakerFactory) {
+        this.pizzaMakerFactory = pizzaMakerFactory;
+    }
+
     public Pizza order(Button button) {
-        PizzaMaker pizzaMaker = null;
-        switch (button) {
-            case ONE:
-                pizzaMaker = new PolloPizzaMaker();
-                break;
-            case TWO:
-                pizzaMaker = new FourCheesesPizzaMaker();
-                break;
-            case THREE:
-                pizzaMaker = new CarbonaraPizzaMaker();
-                break;
-            case FOUR:
-                pizzaMaker = new PepperoniPizzaMaker();
-        }
+        PizzaMaker pizzaMaker = pizzaMakerFactory.getPizzaMaker(button);
         return pizzaMaker.cook();
+    }
+
+    public static void main(String[] args) {
+        Pizza pizza = new PizzaMachine().order(Button.TWO);
+        pizza.eat();
     }
 }
