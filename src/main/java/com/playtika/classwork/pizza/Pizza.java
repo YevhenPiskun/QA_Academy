@@ -2,10 +2,10 @@ package com.playtika.classwork.pizza;
 
 public class Pizza {
 
-    private final String name;
+    private String name;
     private boolean eaten = false;
 
-    Pizza() {
+    Pizza(String name) {
         this.name = name;
     }
 
