@@ -16,4 +16,8 @@ public class Rectangle extends AbstractFactoryRectangle {
     public Rectangle createShape() {
         return new Rectangle();
     }
+
+    public AbstractShapeFactory getShape() {
+        return null;
+    }
 }
