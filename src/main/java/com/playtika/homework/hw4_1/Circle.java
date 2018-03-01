@@ -30,6 +30,7 @@ public class Circle extends AbstractShape {
         setRadius(Double.parseDouble(radiusLine));
         System.out.printf("Коло з радіусом %f має площу %f %n", getRadius(), getSquare());
         System.out.printf("Коло з радіусом %f має периметр %f %n", getRadius(), getPerimeter());
+        ;
     }
 
     private void setRadius(double radius) {
