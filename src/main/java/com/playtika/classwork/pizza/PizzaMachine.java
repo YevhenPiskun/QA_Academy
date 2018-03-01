@@ -14,7 +14,7 @@ public class PizzaMachine {
     }
 
     public static void main(String[] args) {
-        Pizza pizza = new PizzaMachine().order(Button.TWO);
-        pizza.eat();
+//        Pizza pizza = new PizzaMachine().order(Button.TWO);
+//        pizza.eat();
     }
 }
