@@ -1,6 +1,5 @@
 package com.playtika.homework.com.homework7;
 
-import javax.xml.bind.SchemaOutputResolver;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
