@@ -5,7 +5,7 @@ import java.io.*;
 public class FileFindPhrase {
     private String path;
 
-    FileFindPhrase(String path) {
+    public FileFindPhrase(String path) {
         this.path = path;
     }
 
