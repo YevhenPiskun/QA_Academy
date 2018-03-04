@@ -13,15 +13,18 @@ public class Main {
         System.out.print("$ grep ");
         String line = reader.readLine();
         String arr[] = line.split(" ");
-        if (arr.length == 2){
+        if (arr.length == 2) {
             FileFindPhrase ffp = new FileFindPhrase(arr[1]);
             try {
                 ffp.find(arr[0].substring(1, arr[0].length() - 1));
             } catch (IOException e) {
                 System.out.println("File not found");
+            } finally {
+                reader.close();
             }
         } else {
             System.out.println("Неправильный формат ввода");
         }
+        reader.close();
     }
 }
