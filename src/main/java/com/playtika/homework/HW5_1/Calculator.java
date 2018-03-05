@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Main {
+public class Calculator {
     /**
     В этом методе нужно обрабатывать исключения WrongOperationException и WrongEnteringException и
     в catch выводить в консоль соответсвующую ошибку. Программа не должна падать по стектрейсу.
@@ -30,25 +30,25 @@ public class Main {
         try {
             if (operation.equals("+")) {
                 //зачем нам интерфейс, если ты вызваешь метод калькуляции через конкретный класс????
-                new Addition().calculate(a, b);
+                new Addition().resultFor(a, b);
             } else if (operation.equals("-")) {
                 //зачем нам интерфейс, если ты вызваешь метод калькуляции через конкретный класс????
-                new Subtraction().calculate(a, b);
+                new Subtraction().resultFor(a, b);
             } else if (operation.equals("*")) {
                 //зачем нам интерфейс, если ты вызваешь метод калькуляции через конкретный класс????
-                new Multiplication().calculate(a, b);
+                new Multiplication().resultFor(a, b);
             } else if (operation.equals("/")) {
                 //зачем нам интерфейс, если ты вызваешь метод калькуляции через конкретный класс????
-                new Division().calculate(a, b);
+                new Division().resultFor(a, b);
             } else if (operation.equals("^")) {
                 //зачем нам интерфейс, если ты вызваешь метод калькуляции через конкретный класс????
-                new Degree().calculate(a, b);
+                new Degree().resultFor(a, b);
             } else if (operation.equals("log")) {
                 //зачем нам интерфейс, если ты вызваешь метод калькуляции через конкретный класс????
-                new Logarithm().calculate(a, b);
+                new Logarithm().resultFor(a, b);
             } else if (operation.equals("sqrt")) {
                 //зачем нам интерфейс, если ты вызваешь метод калькуляции через конкретный класс????
-                new Root().calculate(a, b);
+                new Root().resultFor(a, b);
             } else {
                 throw new WrongOperationException("You enter wrong operation");
             }
@@ -56,5 +56,9 @@ public class Main {
             throw new WrongEnteringException("You enter wrong expression");
         }
 
+    }
+
+    public double calculate(double val1, double val2, String operator){
+        Calculable calc = 
     }
 }

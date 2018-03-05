@@ -1,7 +1,7 @@
 package com.playtika.homework.HW5_1;
 
 public class Root implements Calculable {
-    public void calculate(double firstNum, double secondNum) {
-        System.out.println(Math.pow(secondNum, 1 / firstNum));
+    public double resultFor(double firstNum, double secondNum) {
+        return Math.pow(secondNum, 1 / firstNum);
     }
 }
