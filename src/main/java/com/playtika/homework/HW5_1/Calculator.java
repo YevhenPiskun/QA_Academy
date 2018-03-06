@@ -6,13 +6,12 @@ import java.io.InputStreamReader;
 
 public class Calculator {
     /**
-    В этом методе нужно обрабатывать исключения WrongOperationException и WrongEnteringException и
-    в catch выводить в консоль соответсвующую ошибку. Программа не должна падать по стектрейсу.
-    
-    Порождаться же исключения должны в отдельном классе, к примеру Calculator, который принимает параметры,
-    строку оператора и выводить результат.
-    
-    **/
+     * В этом методе нужно обрабатывать исключения WrongOperationException и WrongEnteringException и
+     * в catch выводить в консоль соответсвующую ошибку. Программа не должна падать по стектрейсу.
+     * <p>
+     * Порождаться же исключения должны в отдельном классе, к примеру Calculator, который принимает параметры,
+     * строку оператора и выводить результат.
+     **/
     public static void main(String[] args) throws IOException, WrongOperationException, WrongEnteringException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Введите выражение через пробел: ");
@@ -26,39 +25,39 @@ public class Calculator {
             b = Double.parseDouble(arr[2]);
             operation = arr[1];
         }
-        System.out.println("Результат: ");
-        try {
-            if (operation.equals("+")) {
-                //зачем нам интерфейс, если ты вызваешь метод калькуляции через конкретный класс????
-                new Addition().resultFor(a, b);
-            } else if (operation.equals("-")) {
-                //зачем нам интерфейс, если ты вызваешь метод калькуляции через конкретный класс????
-                new Subtraction().resultFor(a, b);
-            } else if (operation.equals("*")) {
-                //зачем нам интерфейс, если ты вызваешь метод калькуляции через конкретный класс????
-                new Multiplication().resultFor(a, b);
-            } else if (operation.equals("/")) {
-                //зачем нам интерфейс, если ты вызваешь метод калькуляции через конкретный класс????
-                new Division().resultFor(a, b);
-            } else if (operation.equals("^")) {
-                //зачем нам интерфейс, если ты вызваешь метод калькуляции через конкретный класс????
-                new Degree().resultFor(a, b);
-            } else if (operation.equals("log")) {
-                //зачем нам интерфейс, если ты вызваешь метод калькуляции через конкретный класс????
-                new Logarithm().resultFor(a, b);
-            } else if (operation.equals("sqrt")) {
-                //зачем нам интерфейс, если ты вызваешь метод калькуляции через конкретный класс????
-                new Root().resultFor(a, b);
-            } else {
-                throw new WrongOperationException("You enter wrong operation");
-            }
-        } catch (NullPointerException e) {
-            throw new WrongEnteringException("You enter wrong expression");
-        }
-
+        System.out.print("= ");
+        Calculator calculator = new Calculator();
+        System.out.println(calculator.calculate(a, b, operation));
     }
 
-    public double calculate(double val1, double val2, String operator){
-        Calculable calc = 
+    public double calculate(double val1, double val2, String operator) throws WrongOperationException {
+        Calculable operation = getOperationFor(operator);
+
+        if (operation == null) {
+            System.out.println("Неизвестный оператор " + operator);
+            return Double.NaN;
+        }
+
+        return operation.resultFor(val1, val2);
+    }
+
+    private Calculable getOperationFor(String operator) throws WrongOperationException {
+        if ("*".equals(operator)) {
+            return new Multiplication();
+        } else if ("-".equals(operator)) {
+            return new Subtraction();
+        } else if ("+".equals(operator)) {
+            return new Addition();
+        } else if ("/".equals(operator)) {
+            return new Division();
+        } else if ("^".equals(operator)) {
+            return new Degree();
+        } else if ("log".equals(operator)) {
+            return new Logarithm();
+        } else if ("sqrt".equals(operator)) {
+            return new Root();
+        } else if ("*".equals(operator)) {
+            return new Multiplication();
+        } else throw new WrongOperationException("You enter wrong operation");
     }
 }
