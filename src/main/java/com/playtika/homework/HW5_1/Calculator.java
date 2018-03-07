@@ -3,61 +3,61 @@ package com.playtika.homework.HW5_1;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Calculator {
-    /**
-     * В этом методе нужно обрабатывать исключения WrongOperationException и WrongEnteringException и
-     * в catch выводить в консоль соответсвующую ошибку. Программа не должна падать по стектрейсу.
-     * <p>
-     * Порождаться же исключения должны в отдельном классе, к примеру Calculator, который принимает параметры,
-     * строку оператора и выводить результат.
-     **/
-    public static void main(String[] args) throws IOException, WrongOperationException, WrongEnteringException {
+
+    private static final Map<String, Calculable> operation = new HashMap<>();
+
+    private Calculator() {
+        operation.put("+", new Addition());
+        operation.put("-", new Subtraction());
+        operation.put("*", new Multiplication());
+        operation.put("/", new Division());
+        operation.put("log", new Logarithm());
+        operation.put("sqrt", new Root());
+        operation.put("^", new Degree());
+    }
+
+    public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Введите выражение через пробел: ");
         String line = reader.readLine();
         String[] arr = line.split(" ");
-        double a = 0;
-        double b = 0;
-        String operation = null;
-        if (arr.length == 3) {
-            a = Double.parseDouble(arr[0]);
-            b = Double.parseDouble(arr[2]);
-            operation = arr[1];
+        double a, b;
+        String operation;
+        try {
+            if (arr.length == 3) {
+                a = Double.parseDouble(arr[0]);
+                b = Double.parseDouble(arr[2]);
+                operation = arr[1];
+            } else {
+                throw new WrongEnteringException();
+            }
+            System.out.print("= ");
+            Calculator calculator = new Calculator();
+            try {
+                System.out.println(calculator.calculate(a, b, operation));
+            } catch (WrongOperationException e) {
+                System.out.println("Такая операция не поддерживается");
+            }
+        } catch (WrongEnteringException e) {
+            System.out.println("Неправильный формат ввода");
+        } catch (NumberFormatException e) {
+            System.out.println("Операции с буквами не поддерживаются");
         }
-        System.out.print("= ");
-        Calculator calculator = new Calculator();
-        System.out.println(calculator.calculate(a, b, operation));
     }
 
-    public double calculate(double val1, double val2, String operator) throws WrongOperationException {
+    private double calculate(double val1, double val2, String operator) throws WrongOperationException {
         Calculable operation = getOperationFor(operator);
-
         if (operation == null) {
-            System.out.println("Неизвестный оператор " + operator);
-            return Double.NaN;
+            throw new WrongOperationException();
         }
-
         return operation.resultFor(val1, val2);
     }
 
-    private Calculable getOperationFor(String operator) throws WrongOperationException {
-        if ("*".equals(operator)) {
-            return new Multiplication();
-        } else if ("-".equals(operator)) {
-            return new Subtraction();
-        } else if ("+".equals(operator)) {
-            return new Addition();
-        } else if ("/".equals(operator)) {
-            return new Division();
-        } else if ("^".equals(operator)) {
-            return new Degree();
-        } else if ("log".equals(operator)) {
-            return new Logarithm();
-        } else if ("sqrt".equals(operator)) {
-            return new Root();
-        } else if ("*".equals(operator)) {
-            return new Multiplication();
-        } else throw new WrongOperationException("You enter wrong operation");
+    private Calculable getOperationFor(String operator) {
+        return operation.get(operator);
     }
 }
