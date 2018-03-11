@@ -1,0 +1,11 @@
+I think it is test
+yestest
+no test
+test
+off course it is not have this word
+and this string have test word
+Withtest
+^((\+380)(0-9]{9))$ Wrong regular expression
+whithout this word
+And it is my phone number +380933113738
+And if test you see twice in test string
