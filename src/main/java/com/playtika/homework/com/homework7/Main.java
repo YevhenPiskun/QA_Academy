@@ -22,8 +22,6 @@ public class Main {
             } else {
                 ffp.findByString();
             }
-        } catch (NoSuchFileException e) {
-            System.out.println("File not found");
         } catch (SecurityException e) {
             System.out.println("Нет доступа к файлу");
         } finally {
