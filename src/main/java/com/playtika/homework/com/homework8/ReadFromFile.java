@@ -26,8 +26,8 @@ public class ReadFromFile {
         return map;
     }
 
-    private ArrayList<String> createListOfWords(List<String> lines) {
-        ArrayList<String> words = new ArrayList<>();
+    private List<String> createListOfWords(List<String> lines) {
+        List<String> words = new ArrayList<>();
         for (int i = 0; i < lines.size() - 1; i++) {
             String arrayOfWords[] = lines.get(i).split("[ ,.:!_?)\"(\\-]");
             for (int k = 0; k < arrayOfWords.length - 1; k++) {

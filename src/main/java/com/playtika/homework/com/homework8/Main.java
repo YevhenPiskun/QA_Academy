@@ -10,13 +10,12 @@ public class Main {
     public static void main(String[] args) throws IOException {
         //String line = "C:/Games/test2.txt";
         ReadFromFile rff = new ReadFromFile(args[0]);
-        Map<String, Integer> map = new TreeMap<>();
         try {
-            map = rff.calculateWords();
+            rff.calculateWords();
         } catch (NoSuchFileException e) {
             System.out.println("File not found");
         }
-        Iterator<Map.Entry<String, Integer>> iterator = map.entrySet().iterator();
+        Iterator<Map.Entry<String, Integer>> iterator = rff.calculateWords().entrySet().iterator();
         while (iterator.hasNext()) {
             Map.Entry<String, Integer> pair = iterator.next();
             String key = pair.getKey();
