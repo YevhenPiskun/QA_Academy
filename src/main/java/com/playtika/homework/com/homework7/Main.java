@@ -16,26 +16,19 @@ public class Main {
         StringChecker sc = new StringChecker();
         FileFindPhrase ffp = new FileFindPhrase(file, phrase);
         boolean isRegExp = sc.checkStringOnRegExp(phrase);
-        if (isRegExp) {
-            try {
+        try {
+            if (isRegExp) {
                 ffp.findByRegExp();
-            } catch (NoSuchFileException e) {
-                System.out.println("File not found");
-            } catch (SecurityException e) {
-                System.out.println("Нет доступа к файлу");
-            } finally {
-                reader.close();
-            }
-        } else {
-            try {
+            } else {
                 ffp.findByString();
-            } catch (NoSuchFileException e) {
-                System.out.println("File not found");
-            } catch (SecurityException e) {
-                System.out.println("Нет доступа к файлу");
-            } finally {
-                reader.close();
             }
+        } catch (NoSuchFileException e) {
+            System.out.println("File not found");
+        } catch (SecurityException e) {
+            System.out.println("Нет доступа к файлу");
+        } finally {
+            reader.close();
         }
     }
 }
+
