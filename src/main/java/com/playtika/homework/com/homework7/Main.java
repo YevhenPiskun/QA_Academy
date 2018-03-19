@@ -1,0 +1,41 @@
+package com.playtika.homework.com.homework7;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.file.NoSuchFileException;
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("Enter phrase or regular expression: ");
+        String phrase = reader.readLine();
+        System.out.println("Enter file path: ");
+        String file = reader.readLine();
+        StringChecker sc = new StringChecker();
+        FileFindPhrase ffp = new FileFindPhrase(file, phrase);
+        boolean isRegExp = sc.checkStringOnRegExp(phrase);
+        if (isRegExp) {
+            try {
+                ffp.findByRegExp();
+            } catch (NoSuchFileException e) {
+                System.out.println("File not found");
+            } catch (SecurityException e) {
+                System.out.println("Нет доступа к файлу");
+            } finally {
+                reader.close();
+            }
+        } else {
+            try {
+                ffp.findByString();
+            } catch (NoSuchFileException e) {
+                System.out.println("File not found");
+            } catch (SecurityException e) {
+                System.out.println("Нет доступа к файлу");
+            } finally {
+                reader.close();
+            }
+        }
+    }
+}
