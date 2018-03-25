@@ -11,15 +11,29 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ReadingFromFile {
+
     public static List<Employee> listOfEmployee;
     public static List<String> listOfString;
     BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-    public Path getPath() throws IOException {
+    private Path getPath() throws IOException {
         System.out.println("Введите путь к файлу: ");
         String line = reader.readLine();
         Path path = Paths.get(line);
         return path.toAbsolutePath();
+    }
+
+    public List<String> readFromFile() throws IOException {
+        listOfString = Files.readAllLines(getPath());
+        return listOfString;
+    }
+
+    public List<Employee> createListOfEmployees(List<String> list) {
+        String[] arr;
+        for (int i = 0; i < list.size(); i++) {
+            arr = list.get(i).split(";");
+        }
+        return listOfEmployee;
     }
 
 }
