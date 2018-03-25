@@ -11,7 +11,7 @@ public class Employee {
     private long inn;
     private Sex sex;
     private LocalDate startWorkerDate;
-    private LocalDate endWorkerDate;
+    private LocalDate endWorkerDate = null;
     private double salary;
 
     public void setFirstName(String firstName) {

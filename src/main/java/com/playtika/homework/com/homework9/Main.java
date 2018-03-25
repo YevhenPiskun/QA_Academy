@@ -7,6 +7,7 @@ import java.io.IOException;
 public class Main {
     public static void main(String[] args) throws IOException {
         ReadingFromFile readingFromFile = new ReadingFromFile();
-        readingFromFile.readFromFile();
+        StreamMethods sm = new StreamMethods();
+        sm.getCountOfFemale(readingFromFile.createListOfEmployees(readingFromFile.readFromFile()));
     }
 }
