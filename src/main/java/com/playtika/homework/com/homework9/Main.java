@@ -1,7 +1,5 @@
 package com.playtika.homework.com.homework9;
 
-import com.playtika.homework.com.homework8.ReadFromFile;
-
 import java.io.IOException;
 
 public class Main {
