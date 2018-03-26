@@ -1,6 +1,9 @@
 package com.playtika.homework.com.homework9;
 
 import java.time.LocalDate;
+import java.time.Period;
+
+import static java.time.LocalDate.now;
 
 public class Employee {
 
@@ -84,5 +87,11 @@ public class Employee {
 
     public double getSalary() {
         return salary;
+    }
+
+    public int getExpirience(){
+        if(endWorkerDate == null)
+            endWorkerDate = now();
+        return Period.between(getStartWorkerDate(), getEndWorkerDate()).getYears();
     }
 }
