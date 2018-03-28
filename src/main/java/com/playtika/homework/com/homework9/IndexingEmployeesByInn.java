@@ -3,6 +3,7 @@ package com.playtika.homework.com.homework9;
 import java.util.List;
 import java.util.stream.Collectors;
 
+
 public class IndexingEmployeesByInn implements Reportable {
     @Override
     public void report(List<Employee> list) {
