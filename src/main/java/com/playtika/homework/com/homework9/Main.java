@@ -16,6 +16,7 @@ public class Main {
         reports.add(new MinSalaryOfEmployeeWithNameSvetlana());
         reports.add(new FioOfEmployeesWhoWorksMore10YearsInThisCompany());
         reports.add(new CountOfFiredEmployeesInLastYear());
+        reports.add(new IndexingEmployeesByInn());
 
         for (int i = 0; i < reports.size(); i++) {
             reports.get(i).report(list);
