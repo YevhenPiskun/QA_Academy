@@ -8,7 +8,8 @@ public class CountOfFiredEmployeesInLastYear implements Reportable {
     public void report(List<Employee> list) {
         System.out.println("Число уволенных за прошлый год: ");
         System.out.println(list.stream()
-        .filter(employee -> employee.getEndWorkerDate().getYear() == LocalDate.now().getYear() - 1)
-        .count());
+                .filter(employee -> employee.getEndWorkerDate().getYear() == LocalDate.now().getYear() - 1)
+                .count());
+        System.out.println();
     }
 }

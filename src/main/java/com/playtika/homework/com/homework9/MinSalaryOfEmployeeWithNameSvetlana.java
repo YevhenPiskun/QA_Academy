@@ -10,9 +10,6 @@ public class MinSalaryOfEmployeeWithNameSvetlana implements Reportable {
         .filter(employee -> "Светлана".equals(employee.getSecondName()))
         .map(Employee::getSalary)
         .min(Double::compareTo).get());
-<<<<<<< HEAD
         System.out.println();
-=======
->>>>>>> origin/HW9
     }
 }
