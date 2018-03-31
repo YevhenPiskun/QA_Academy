@@ -94,4 +94,8 @@ public class Employee {
             endWorkerDate = now();
         return Period.between(getStartWorkerDate(), getEndWorkerDate()).getYears();
     }
+
+    public int getAgeOfEmployee(){
+        return Period.between(getDateOfBirthday(), now()).getYears();
+    }
 }

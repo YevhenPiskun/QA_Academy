@@ -17,6 +17,10 @@ public class Main {
         reports.add(new FioOfEmployeesWhoWorksMore10YearsInThisCompany());
         reports.add(new CountOfFiredEmployeesInLastYear());
         reports.add(new IndexingEmployeesByInn());
+        reports.add(new MiddleAgeOfEmployees());
+        reports.add(new MiddleSalaryOfMaleEmployees());
+        reports.add(new MiddleSalaryOfFemaleOldestThan40());
+        reports.add(new GroupingByMonthOfBirthFemaleFrom30To40());
 
         for (int i = 0; i < reports.size(); i++) {
             reports.get(i).report(list);
