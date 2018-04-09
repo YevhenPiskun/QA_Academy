@@ -8,8 +8,8 @@ public class MaxSalaryOfEmployeeWithNameNikolay implements Reportable {
         System.out.println("Максимальная зарплата у сотрудника с именем Николай: ");
         System.out.println(list.stream()
                 .filter(employee -> "Николай".equals(employee.getSecondName()))
-                .map(Employee::getSalary)
-                .max(Double::compareTo).get());
+                .mapToDouble(Employee::getSalary)
+                .max());
         System.out.println();
     }
 }

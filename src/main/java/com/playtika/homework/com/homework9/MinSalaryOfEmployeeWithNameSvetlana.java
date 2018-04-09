@@ -8,8 +8,8 @@ public class MinSalaryOfEmployeeWithNameSvetlana implements Reportable {
         System.out.println("Минимальная зарплата у сотрудниц с именем Светлана: ");
         System.out.println(list.stream()
         .filter(employee -> "Светлана".equals(employee.getSecondName()))
-        .map(Employee::getSalary)
-        .min(Double::compareTo).get());
+        .mapToDouble(Employee::getSalary)
+        .min());
         System.out.println();
     }
 }
